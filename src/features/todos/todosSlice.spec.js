@@ -127,3 +127,15 @@ describe('todos reducer', () => {
     ]);
   });
 });
+
+describe('addTodo', () => {
+  it('should generate incrementing todo IDs', () => {
+    const action1 = addTodo('a');
+    const action2 = addTodo('b');
+    const action3 = addTodo('c');
+
+    expect(action1.payload).toEqual({ text: 'a', id: 0 });
+    expect(action2.payload).toEqual({ text: 'b', id: 1 });
+    expect(action3.payload).toEqual({ text: 'c', id: 2 });
+  });
+});
