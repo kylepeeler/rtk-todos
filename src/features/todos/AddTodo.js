@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from 'features/todos/todosSlice';
+import { addTodo, clearTodos } from 'features/todos/todosSlice';
 
-const mapDispatch = { addTodo };
+const mapDispatch = { addTodo, clearTodos };
 
-const AddTodo = ({ addTodo }) => {
+const AddTodo = ({ addTodo, clearTodos }) => {
   const [todoText, setTodoText] = useState('');
 
   const onChange = (e) => setTodoText(e.currentTarget.value);
@@ -23,6 +23,9 @@ const AddTodo = ({ addTodo }) => {
       >
         <input value={todoText} onChange={onChange} />
         <button type="submit">Add Todo</button>
+        <button type="button" onClick={() => clearTodos()}>
+          Clear Todos
+        </button>
       </form>
     </div>
   );
